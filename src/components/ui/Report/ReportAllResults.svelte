@@ -19,7 +19,38 @@
         * -->
         {#each guidelineCriteria(guideline) as criterion (criterion.num)}
           <tr class="Auditor__Assertion">
-            <th scope="row" class="Auditor__Assertion-SC" id={`criterion-${criterion.num.replaceAll('.', '')}`}>{criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}</th>
+            <th scope="row" class="Auditor__Assertion-SC" id={`criterion-${criterion.num.replaceAll('.', '')}`}>
+              {criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}
+              
+              <ul class="criterion__resource-links">
+                {#if wcagVersion == '20'}
+                  <li>
+                    <ResourceLink
+                      href="https://www.w3.org/TR/UNDERSTANDING-WCAG{wcagVersion}/{criterion.id}.html"
+                    >
+                      {TRANSLATED.UNDERSTAND_BUTTON}
+                      {criterion.num}
+                    </ResourceLink>
+                  </li>
+                {:else}
+                  <li>
+                    <ResourceLink
+                      href="https://www.w3.org/WAI/WCAG{wcagVersion}/Understanding/{criterion.id}.html"
+                    >
+                      {TRANSLATED.UNDERSTAND_BUTTON}
+                      {criterion.num}
+                    </ResourceLink>
+                  </li>
+                {/if}
+                  <li>
+                    <ResourceLink href="https://www.w3.org/WAI/WCAG{wcagVersion}/quickref/#{criterion.id}">
+                      {TRANSLATED.HOW_TO_BUTTON}
+                      {criterion.num}
+                    </ResourceLink>
+                  </li>
+              </ul>
+              
+            </th>
             <td>
                 {#each scopeAssertion(criterion) as assertion}
                   {#if sampleAssertions(criterion).length}
@@ -152,6 +183,16 @@
       display: none;
     }
   }
+  
+  ul.criterion__resource-links {
+    margin: .5em;
+    list-style: none;
+  }
+
+  ul.criterion__resource-links li {
+    padding: 0;
+    margin-bottom: .2em;
+  }
 </style>
 
 <script>
@@ -166,6 +207,7 @@
     TestSubjectTypes
   } from '@app/stores/earl/subjectStore/index.js';
   import { TestSubject } from '@app/stores/earl/subjectStore/models.js';
+  import ResourceLink from '@app/components/ui/ResourceLink.svelte';
 
   export let criteria = [];
 
@@ -188,7 +230,9 @@
     HEADER_RESULT: $translate('PAGES.REPORT.HEADER_RESULT'),
     HEADER_OBSERVATIONS: $translate('PAGES.REPORT.HEADER_OBSERVATIONS'),
     NO_OBSERVATIONS_FOUND: $translate('PAGES.REPORT.NO_OBSERVATIONS_FOUND'),
-    EDIT: $translate('UI.REPORT.EDIT')
+    EDIT: $translate('UI.REPORT.EDIT'),
+    UNDERSTAND_BUTTON: $translate('PAGES.AUDIT.UNDERSTAND'),
+    HOW_TO_BUTTON: $translate('PAGES.AUDIT.HOW_TO'),
   };
 
   // Sets are unique values
@@ -202,6 +246,8 @@
       })
     )
   ];
+
+  $: wcagVersion = $scopeStore['WCAG_VERSION'].replace(".", "");
 
   function guidelineCriteria(guideline) {
     return filterAssertions().filter(
