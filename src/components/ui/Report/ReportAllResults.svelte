@@ -68,7 +68,12 @@
                 {#if sampleAssertions(criterion).length}
                   {#each sampleAssertions(criterion) as assertion}
                     {#if assertionHasContents(assertion)}
-                    <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
+                    <h6>
+                      {assertion.subject.title || `Sample ${assertion.subject.ID}`}
+                      {#if assertion.subject.description}
+                        <SamplePageLink href="{assertion.subject.description}" />
+                      {/if}
+                    </h6>
                     <p>
                       <span class="results-label-mobile">{TRANSLATED.HEADER_RESULT}:</span>
                       {assertion.result.outcome.title || TRANSLATED.TEXT_NOT_CHECKED}
@@ -88,17 +93,22 @@
                 {/if}
               {/each}
               {#if sampleAssertions(criterion).length}
-              {#each sampleAssertions(criterion) as assertion}
-                {#if assertionHasContents(assertion)}
-                  <h6>{assertion.subject.title || `Sample ${assertion.subject.ID}`}</h6>
-                  {#if assertion.result.description}
-                    {@html marked(assertion.result.description, {"sanitize": true})}
-                  {:else}
-                    <p>{TRANSLATED.NO_OBSERVATIONS_FOUND}</p>
+                {#each sampleAssertions(criterion) as assertion}
+                  {#if assertionHasContents(assertion)}
+                    <h6>
+                      {assertion.subject.title || `Sample ${assertion.subject.ID}`}
+                      {#if assertion.subject.description}
+                        <SamplePageLink href="{assertion.subject.description}" />
+                      {/if}
+                    </h6>
+                    {#if assertion.result.description}
+                      {@html marked(assertion.result.description, {"sanitize": true})}
+                    {:else}
+                      <p>{TRANSLATED.NO_OBSERVATIONS_FOUND}</p>
+                    {/if}
                   {/if}
-                {/if}
-              {/each}
-            {/if}
+                {/each}
+              {/if}
             </td>
             <td class="strip">
               <Link to={`/evaluation/audit-sample#criterion-${criterion.num.replaceAll('.','')}`}>
@@ -150,6 +160,7 @@
   .Auditor__ResultsTableHeader {
     position: sticky;
     top: 0;
+    z-index: 1;
   }
   .Auditor__Assertion {
     margin-bottom: 1em;
@@ -186,6 +197,7 @@
   
   ul.criterion__resource-links {
     margin: .5em;
+    padding: 0;
     list-style: none;
   }
 
@@ -208,6 +220,8 @@
   } from '@app/stores/earl/subjectStore/index.js';
   import { TestSubject } from '@app/stores/earl/subjectStore/models.js';
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
+  import SamplePageLink from "@app/components/ui/SamplePageLink.svelte";
+  import { basepath } from '@app/stores/appStore.js';
 
   export let criteria = [];
 
