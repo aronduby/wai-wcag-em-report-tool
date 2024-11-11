@@ -1,9 +1,11 @@
-<a href="{href}" class="link-to-sample button button-small button-secondary" target="_blank" title="view page">
-  <span class="visuallyhidden">view page</span>
-  <svg aria-hidden="true" class="icon-info">
-    <use xlink:href={`${$basepath}/images/icons.svg#icon-external-link`}></use>
-  </svg>
-</a>
+{#if urlObj !== false}
+  <a href="{urlObj.href}" class="link-to-sample button button-small button-secondary" target="_blank" title="view page">
+    <span class="visuallyhidden">view page</span>
+    <svg aria-hidden="true" class="icon-external-link">
+      <use xlink:href={`${$basepath}/images/icons.svg#icon-external-link`}></use>
+    </svg>
+  </a>
+{/if}
 
 <style>
   .link-to-sample {
@@ -17,5 +19,18 @@
 
 <script>
   import { basepath } from '@app/stores/appStore.js';
+  import { replaceHost } from '@app/stores/hostReplacementStore.js';
+  
   export let href;
+  
+  let urlObj;
+  
+  $: {
+    try {
+      urlObj = replaceHost(new URL(href));
+    } catch (err) {
+      console.error(err);
+      urlObj = false;
+    }
+  }
 </script>

@@ -5,6 +5,7 @@
   import SelectSamplePage from './SelectSamplePage.svelte';
   import DefineScopePage from './DefineScopePage.svelte';
   import ReportFindingsPage from './ReportFindingsPage.svelte';
+  import DomainReplacementPage from "./DomainReplacementPage.svelte";
 
   export {
     AuditSamplePage,
@@ -12,7 +13,8 @@
     ViewReportPage,
     SelectSamplePage,
     DefineScopePage,
-    ReportFindingsPage
+    ReportFindingsPage,
+    DomainReplacementPage,
   };
 
 </script>

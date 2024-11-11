@@ -24,7 +24,7 @@
 {:else}
   <div class="default-grid">
     <main class="main-without-panel">
-      {#if !isViewReport && !isOverview && !isAcknowledgements}
+      {#if !isViewReport && !isOverview && !isAcknowledgements && !isDomainReplacement}
       <YourReport />
       {/if}
       <h1>{title}</h1>
@@ -79,7 +79,8 @@
   $: isViewReport = $location.pathname === $routes.VIEW_REPORT.path;
   $: isOverview = $location.pathname === $routes.OVERVIEW.path;
   $: isAcknowledgements = $location.pathname === $routes.ACKNOWLEDGEMENTS.path;
-  $: needsPanelSpace = !isViewReport && !isOverview && !isAcknowledgements && $yourReportPanelOpen;
+  $: isDomainReplacement = $location.pathname === $routes.DOMAIN_REPLACEMENT.path;
+  $: needsPanelSpace = !isViewReport && !isOverview && !isAcknowledgements && !isDomainReplacement && $yourReportPanelOpen;
 
   onMount(() => {
     setTimeout(honourFragmentIdLinks($location), 100);

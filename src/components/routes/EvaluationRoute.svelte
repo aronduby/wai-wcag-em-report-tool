@@ -6,6 +6,7 @@
     <Route path="/select-sample"><SelectSamplePage /></Route>
     <Route path="/audit-sample"><AuditSamplePage /></Route>
     <Route path="/report-findings"><ReportFindingsPage /></Route>
+    <Route path="/domain-replacement"><DomainReplacementPage /></Route>
     <Route path="/view-report"><ViewReportPage /></Route>
   </EvaluationLayout>
 </Router>
@@ -22,6 +23,7 @@
     ExploreWebsitePage,
     ReportFindingsPage,
     SelectSamplePage,
-    ViewReportPage
+    ViewReportPage,
+    DomainReplacementPage,
   } from '@app/components/pages/Evaluation/Index.svelte';
 </script>

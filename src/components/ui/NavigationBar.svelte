@@ -75,6 +75,10 @@
       title: $translate('UI.NAV.WZRD_REPORT')
     },
     {
+      path: '/evaluation/domain-replacement',
+      title: 'Domain Replacement',
+    },
+    {
       path: '/evaluation/view-report',
       title: $translate('UI.NAV.WZRD_VIEWREPORT')
     }

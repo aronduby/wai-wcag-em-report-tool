@@ -27,6 +27,10 @@ export const routes = derived([translate], ([$translate]) => {
       title: $translate('UI.NAV.STEP_REPORT'),
       path: '/evaluation/report-findings'
     },
+    DOMAIN_REPLACEMENT: {
+      title: 'Sample Page Domain Replacement',
+      path: '/evaluation/domain-replacement',
+    },
     VIEW_REPORT: {
       title: $translate('UI.NAV.STEP_VIEWREPORT'),
       path: '/evaluation/view-report'

@@ -20,9 +20,13 @@
 
   onMount(() => {
     if (autofocus) {
-      textInput.focus();
+      focus();
     }
   });
+  
+  export function focus() {
+    textInput.focus();
+  }
 </script>
 
 <style>
