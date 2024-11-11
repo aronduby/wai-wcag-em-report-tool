@@ -34,22 +34,24 @@
     </dd>
   </dl>
 
-  {#if editAbout}
-  <button class="button button-secondary" on:click={toggleEditAbout}>
-    {TRANSLATED.BUTTON_SAVE}  
-    <span class="visually-hidden">{TRANSLATED.HEADING_ABOUT}</span>
-  </button>
-  {:else}
-  <button class="button button-secondary" on:click={toggleEditAbout}>
-    {TRANSLATED.BUTTON_EDIT} 
-    <span class="visually-hidden">{TRANSLATED.HEADING_ABOUT}</span>
-  </button>
+  {#if ALLOW_EDIT}
+    {#if editAbout}
+      <button class="button button-secondary" on:click={toggleEditAbout}>
+        {TRANSLATED.BUTTON_SAVE}
+        <span class="visually-hidden">{TRANSLATED.HEADING_ABOUT}</span>
+      </button>
+    {:else}
+      <button class="button button-secondary" on:click={toggleEditAbout}>
+        {TRANSLATED.BUTTON_EDIT}
+        <span class="visually-hidden">{TRANSLATED.HEADING_ABOUT}</span>
+      </button>
+    {/if}
   {/if}
 </div>
 
 <div tabindex="-1" bind:this={sectionExecutiveSummary}>
   <h2>{TRANSLATED.HEADING_SUMMARY}</h2>
-  {#if editExecutiveSummary}
+  {#if ALLOW_EDIT && editExecutiveSummary}
     <div>
       <ReportHeaderValue 
         editing={editExecutiveSummary} 
@@ -64,16 +66,18 @@
     </button>  
   {:else}
     <div>
-    {#if $summaryStore['EVALUATION_SUMMARY']}
-     {@html marked($summaryStore['EVALUATION_SUMMARY'])}
-    {:else}
-      <span class="no-result">{TRANSLATED.LABEL_NOT_PROVIDED}</span>
-    {/if}
+      {#if $summaryStore['EVALUATION_SUMMARY']}
+       {@html marked($summaryStore['EVALUATION_SUMMARY'])}
+      {:else}
+        <span class="no-result">{TRANSLATED.LABEL_NOT_PROVIDED}</span>
+      {/if}
     </div>
-    <button class="button button-secondary" on:click={toggleEditExecutiveSummary}>
-      {TRANSLATED.BUTTON_EDIT} 
-      <span class="visually-hidden">{TRANSLATED.HEADING_SUMMARY}</span>
-    </button>
+    {#if ALLOW_EDIT}
+      <button class="button button-secondary" on:click={toggleEditExecutiveSummary}>
+        {TRANSLATED.BUTTON_EDIT}
+        <span class="visually-hidden">{TRANSLATED.HEADING_SUMMARY}</span>
+      </button>
+    {/if}
   {/if}
 </div>
 
@@ -135,16 +139,18 @@
     </dd>
   </dl>
 
-  {#if editEvaluationScope}
-  <button class="button button-secondary" on:click={toggleEditEvaluationScope}>
-    {TRANSLATED.BUTTON_SAVE}  
-    <span class="visually-hidden">{TRANSLATED.HEADING_SCOPE}</span>
-  </button>
-  {:else}
-  <button class="button button-secondary" on:click={toggleEditEvaluationScope}>
-    {TRANSLATED.BUTTON_EDIT}  
-    <span class="visually-hidden">{TRANSLATED.HEADING_SCOPE}</span>
-  </button>
+  {#if ALLOW_EDIT}
+    {#if editEvaluationScope}
+      <button class="button button-secondary" on:click={toggleEditEvaluationScope}>
+        {TRANSLATED.BUTTON_SAVE}
+        <span class="visually-hidden">{TRANSLATED.HEADING_SCOPE}</span>
+      </button>
+    {:else}
+      <button class="button button-secondary" on:click={toggleEditEvaluationScope}>
+        {TRANSLATED.BUTTON_EDIT}
+        <span class="visually-hidden">{TRANSLATED.HEADING_SCOPE}</span>
+      </button>
+    {/if}
   {/if}
 </div>
 
@@ -235,9 +241,7 @@
   import ReportSummary from './Report/ReportSummary.svelte';
   import evaluationStore from '@app/stores/evaluationStore.js';
 
-  const { sampleStore, summaryStore, exploreStore, translate } = getContext(
-    'app'
-  );
+  const { sampleStore, summaryStore, exploreStore, translate, ALLOW_EDIT } = getContext('app');
 
   let editAbout = false;
   let editExecutiveSummary = false;

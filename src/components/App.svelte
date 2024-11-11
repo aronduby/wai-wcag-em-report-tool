@@ -26,6 +26,8 @@
 
   export let basepath = '';
 
+  export const ALLOW_EDIT = false;
+    
   setContext('app', {
     translate,
     translateToObject,
@@ -34,7 +36,8 @@
     sampleStore,
     scopeStore,
     summaryStore,
-    wcagStore
+    wcagStore,
+    ALLOW_EDIT,
   });
 
   setContext('Evaluation', {

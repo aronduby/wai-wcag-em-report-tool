@@ -9,7 +9,7 @@
             <th scope="col">{TRANSLATED.HEADER_SUCCESS_CRITERION}</th>
             <th scope="col">{TRANSLATED.HEADER_RESULT}</th>
             <th scope="col">{TRANSLATED.HEADER_OBSERVATIONS}</th>
-            <th scope="col" class="strip">{TRANSLATED.EDIT}</th>
+            {#if ALLOW_EDIT}<th scope="col" class="strip">{TRANSLATED.EDIT}</th>{/if}
           </tr>
         <!--
         * Should filter assertions based on test prop;
@@ -110,26 +110,28 @@
                 {/each}
               {/if}
             </td>
-            <td class="strip">
-              <Link to={`/evaluation/audit-sample#criterion-${criterion.num.replaceAll('.','')}`}>
-                <span class="visuallyhidden">Edit {criterion.num}</span>
-                <svg
-                  aria-hidden="true"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="feather feather-edit">
-                  <path
-                    d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-                </svg>
-              </Link>        
-            </td>
+            {#if ALLOW_EDIT}
+              <td class="strip">
+                <Link to={`/evaluation/audit-sample#criterion-${criterion.num.replaceAll('.','')}`}>
+                  <span class="visuallyhidden">Edit {criterion.num}</span>
+                  <svg
+                    aria-hidden="true"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-edit">
+                    <path
+                      d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                  </svg>
+                </Link>        
+              </td>
+            {/if}
           </tr>
         {/each}
       </tbody>
@@ -225,7 +227,7 @@
 
   export let criteria = [];
 
-  const { translate, translateToObject } = getContext('app');
+  const { translate, translateToObject, ALLOW_EDIT } = getContext('app');
   
   // marked.setOptions({
   //   sanitize: true
