@@ -25,5 +25,9 @@
     "CHOICES_DT4": "Nie dotyczy",
     "CHOICES_DD4": "To kryterium sukcesu nie ma zastosowania - odnosi się do funkcji lub treści, jakiej nie ma na stronie. ",
     "CHOICES_DT5": "Nie można powiedzieć",
-    "CHOICES_DD5": "Nie wiadomo, czy kryterium sukcesu jest spełnione"
+    "CHOICES_DD5": "Nie wiadomo, czy kryterium sukcesu jest spełnione",
+    "OPEN": {
+        "SUBTITLE": "Otwórz raport",
+        "INTRO_2": "Jest to wyspecjalizowana wersja narzędzia przeznaczona do przeglądania raportów utworzonych za pomocą tego narzędzia. Jeśli nie masz jeszcze raportu w formacie JSON, użyj narzędzia, aby <a href='https://www.w3.org/WAI/eval/report-tool/evaluation/define-scope' target='_blank'>utwórz nowy raport</a>, a następnie wróć tutaj, aby go otworzyć."
+    }
 }

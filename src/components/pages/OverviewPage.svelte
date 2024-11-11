@@ -98,7 +98,7 @@
     CHOICES_DD4: $translate('PAGES.START.CHOICES_DD4'),
     CHOICES_DT5: $translate('PAGES.START.CHOICES_DT5'),
     CHOICES_DD5: $translate('PAGES.START.CHOICES_DD5'),
-    CLEAR_WARNING: $translate('UI.NAV.CLEARWARNING')
+    CLEAR_WARNING: $translate('UI.NAV.CLEAR_WARNING')
   };
 
   function handleNewEvaluationClick() {

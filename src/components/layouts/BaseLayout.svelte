@@ -70,7 +70,7 @@
   import NavigationBar from '@app/components/ui/NavigationBar.svelte';
   import Pager from '@app/components/ui/Pager.svelte';
 
-  const { translate } = getContext('app');
+  const { translate, ALLOW_EDIT } = getContext('app');
   const location = useLocation();
 
   $: TRANSLATED = {
@@ -79,7 +79,10 @@
 
   $: isAcknowledgements = $location.pathname === $routes.ACKNOWLEDGEMENTS.path;
 
-  $: pagerContext = Object.keys($routes).map((key) => {
-    return $routes[key];
-  });  
+  $: pagerContext = Object.values($routes)
+    .filter(r => !r.hideFromStepper && r.editMode.includes(ALLOW_EDIT))
+    .map(r => ({
+      path: r.path,
+      title: $translate(`UI.NAV.STEPS.${r.titleKey}`)
+    }));
 </script>

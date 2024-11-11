@@ -25,5 +25,9 @@
     "CHOICES_DT4": "Non applicable",
     "CHOICES_DD4": "Ce critère de réussite se rapporte à une fonctionnalité que l’outil de création ne possède pas, il n’est donc pas applicable. ",
     "CHOICES_DT5": "Je ne sais pas",
-    "CHOICES_DD5": "Il n’est pas certain que le critère de réussite soit rempli."
+    "CHOICES_DD5": "Il n’est pas certain que le critère de réussite soit rempli.",
+    "OPEN": {
+        "SUBTITLE": "Ouvrir un rapport",
+        "INTRO_2": "Il s'agit d'une version spécialisée de l'outil spécifique à la visualisation des rapports réalisés avec l'outil. Si vous n'avez pas encore de rapport sous forme de fichier JSON, utilisez l'outil pour <a href='https://www.w3.org/WAI/eval/report-tool/evaluation/define-scope' target='_blank'>créez un nouveau rapport</a>, puis revenez ici pour l'ouvrir."
+    }
 }

@@ -1,0 +1,15 @@
+{
+    "TITLE": "Przykładowa wymiana domeny strony",
+    "INTRO": "Raport ten zawiera linki do przykładowych stron. Jeśli używasz innego najemcy/środowiska, możesz użyć poniższych pól, aby zastąpić domeny w linkach. Są one przechowywane lokalnie, a nie w raporcie.",
+    "EXISTING": "Istniejący",
+    "EXISTING_INTRO": "Oto pochodzenie przykładowych stron przetestowanych w tym raporcie. ",
+    "EXISTING_EMPTY": "nie znaleziono przykładowych stron",
+    "REPLACEMENTS": "Części zamienne",
+    "ORIGINAL_ORIGIN": "Oryginalne pochodzenie",
+    "REPLACEMENT_ORIGIN": "Pochodzenie zastępcze",
+    "ADD_REPLACEMENT": "Dodaj zamiennik",
+    "ERRORS": {
+        "ORIGINAL_ORIGIN_UNPARSEABLE": "Oryginalnego źródła nie można przeanalizować jako adresu URL",
+        "REPLACEMENT_ORIGIN_UNPARSEABLE": "Źródło zastępcze nie może zostać przeanalizowane jako adres URL"
+    }
+}

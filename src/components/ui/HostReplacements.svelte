@@ -1,8 +1,8 @@
 <!-- Sample origins that already exist -->
 <div>
   <fieldset>
-    <legend>Existing</legend>
-    <p class="mt-0">These are the origins of the sample pages tested within this report. Click the button to add a replacement.</p>
+    <legend>{TRANSLATED.EXISTING}</legend>
+    <p class="mt-0">{@html TRANSLATED.EXISTING_INTRO}</p>
 
     {#if sampleOrigins.length > 0}
       <div class="fields">
@@ -15,7 +15,7 @@
         {/each}
       </div>
     {:else}
-      <p><em>no sample pages found</em></p>
+      <p><em>{@html TRANSLATED.EXISTING_EMPTY}</em></p>
     {/if}
   </fieldset>
 </div>
@@ -23,13 +23,13 @@
 <!-- Form to add new replacements -->
 <div>
   <fieldset class="mb-0">
-    <legend>Replacements</legend>
+    <legend>{TRANSLATED.REPLACEMENTS}</legend>
 
     <div class="fields">
-      <Input className="mb-0" id="originalHost" label="Original Origin" bind:value="{originalOrigin}" bind:this={originalInput} />
-      <Input className="mb-0" id="replacementHost" label="Replacement Origin" bind:value="{replacementOrigin}" bind:this={replacementInput} />
+      <Input className="mb-0" id="originalHost" label="{TRANSLATED.ORIGINAL_ORIGIN}" bind:value="{originalOrigin}" bind:this={originalInput} />
+      <Input className="mb-0" id="replacementHost" label="{TRANSLATED.REPLACEMENT_ORIGIN}" bind:value="{replacementOrigin}" bind:this={replacementInput} />
 
-      <button class="button button-primary" on:click={addNew}>Add Replacement</button>
+      <button class="button button-primary" on:click={addNew} disabled="{!originalOrigin || !replacementOrigin }">{TRANSLATED.ADD_REPLACEMENT}</button>
     </div>
   </fieldset>
 </div>
@@ -111,10 +111,10 @@
 </style>
 
 <script>
-  import { hostReplacements, addReplacement, removeReplacement } from '@app/stores/hostReplacementStore.js';
-  import { TestSubjectTypes } from "@app/stores/earl/subjectStore/index.js";
   import Input from "../form/Input.svelte";
   import { getContext } from "svelte";
+  import { hostReplacements, addReplacement, removeReplacement } from '@app/stores/hostReplacementStore.js';
+  import { TestSubjectTypes } from "@app/stores/earl/subjectStore/index.js";
 
   const { translate, sampleStore } = getContext('app');
   
@@ -145,14 +145,14 @@
       try {
         new URL(originalOrigin);
       } catch (err) {
-        alert ('Original origin not able to parse as url');
+        alert (TRANSLATED.ERRORS.ORIGINAL_ORIGIN_UNPARSEABLE);
         originalInput.focus();
         return;
       }
       try {
         new URL(replacementOrigin);
       } catch (err) {
-        alert ('Replacement origin not able to parse as url');
+        alert (TRANSLATED.ERRORS.REPLACEMENT_ORIGIN_UNPARSEABLE);
         replacementInput.focus();
         return;
       }
@@ -170,6 +170,17 @@
   }
 
   $: TRANSLATED = {
-    DELETE: $translate('UI.COMMON.DELETE')
+    DELETE: $translate('UI.COMMON.DELETE'),
+    EXISTING: $translate('PAGES.DOMAIN_REPLACEMENT.EXISTING'),
+    EXISTING_INTRO: $translate('PAGES.DOMAIN_REPLACEMENT.EXISTING_INTRO'),
+    EXISTING_EMPTY: $translate('PAGES.DOMAIN_REPLACEMENT.EXISTING_EMPTY'),
+    REPLACEMENTS: $translate('PAGES.DOMAIN_REPLACEMENT.REPLACEMENTS'),
+    ORIGINAL_ORIGIN: $translate('PAGES.DOMAIN_REPLACEMENT.ORIGINAL_ORIGIN'),
+    REPLACEMENT_ORIGIN: $translate('PAGES.DOMAIN_REPLACEMENT.REPLACEMENT_ORIGIN'),
+    ADD_REPLACEMENT: $translate('PAGES.DOMAIN_REPLACEMENT.ADD_REPLACEMENT'),
+    ERRORS: {
+      ORIGINAL_ORIGIN_UNPARSEABLE: $translate('PAGES.DOMAIN_REPLACEMENT.ERRORS.ORIGINAL_ORIGIN_UNPARSEABLE'),
+      REPLACEMENT_ORIGIN_UNPARSEABLE: $translate('PAGES.DOMAIN_REPLACEMENT.ERRORS.REPLACEMENT_ORIGIN_UNPARSEABLE')
+    }
   };
 </script>

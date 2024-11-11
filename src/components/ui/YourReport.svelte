@@ -86,13 +86,13 @@
       default: 'Your report'
     }),
     STEP: $translate('UI.NAV.STEP', { default: 'step' }),
-    VIEW_REPORT: $translate('UI.NAV.VIEWREPORT', {
+    VIEW_REPORT: $translate('UI.NAV.VIEW_REPORT', {
       default: 'View report'
     }),
-    CLEAR_REPORT: $translate('UI.NAV.CLEARREPORT', {
+    CLEAR_REPORT: $translate('UI.NAV.CLEAR_REPORT', {
       default: 'Clear report'
     }),
-    CLEAR_WARNING: $translate('UI.NAV.CLEARWARNING'),
+    CLEAR_WARNING: $translate('UI.NAV.CLEAR_WARNING'),
     NOT_STARTED: $translate('UI.NAV.NOT_STARTED'),
     CONFORMANCE_LEVEL: $translate('WCAG.COMMON.CONFORMANCE_LEVEL'),
     REPORT_FOR: $translate('UI.REPORT.REPORT_FOR'),

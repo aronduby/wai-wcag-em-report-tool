@@ -16,5 +16,9 @@
     "USAGE_LI3": "U kunt tussentijdse rapporten bewaren en er later aan verder werken. Gebruik de ‘Open Rapport’ knop op de eerste pagina en laad daar het bestand dat u eerder hebt opgeslagen.",
     "USAGE_LI4": "Links naar externe pagina’s (buiten de tool) openen in een nieuw browser venster.",
     "TIPS_HD": "Tips om de tool te gebruiken",
-    "TIPS_LI3": "De tool creëert uw rapport als HTML en CSS bestanden. U kunt deze bestanden downloaden op de ‘Bekijk rapport’-pagina. Daarna kunt u de presentatie en de inhoud van het rapport verder bewerken."
+    "TIPS_LI3": "De tool creëert uw rapport als HTML en CSS bestanden. U kunt deze bestanden downloaden op de ‘Bekijk rapport’-pagina. Daarna kunt u de presentatie en de inhoud van het rapport verder bewerken.",
+    "OPEN": {
+        "SUBTITLE": "Open rapport",
+        "INTRO_2": "Dit is een gespecialiseerde versie van de tool die specifiek is voor het bekijken van rapporten die met de tool zijn gemaakt. Als u nog geen rapport als JSON-bestand heeft, gebruik dan de tool om <a href='https://www.w3.org/WAI/eval/report-tool/evaluation/define-scope' target='_blank'>maak een nieuw rapport aan</a> en kom dan hier terug om het te openen."
+    }
 }

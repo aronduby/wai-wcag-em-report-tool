@@ -1,0 +1,15 @@
+{
+    "TITLE": "Sample Page Domain Replacement",
+    "INTRO": "This report includes links to the sample pages. If you are using a different tenant/env, you can use the fields below to replace the domains in the links. These are stored locally as opposed to in the report.",
+    "EXISTING": "Existing",
+    "EXISTING_INTRO": "These are the origins of the sample pages tested within this report. Click the button to add a replacement.",
+    "EXISTING_EMPTY": "no sample pages found",
+    "REPLACEMENTS": "Replacements",
+    "ORIGINAL_ORIGIN": "Original Origin",
+    "REPLACEMENT_ORIGIN": "Replacement Origin",
+    "ADD_REPLACEMENT": "Add Replacement",
+    "ERRORS": {
+        "ORIGINAL_ORIGIN_UNPARSEABLE": "Original origin not able to parse as url",
+        "REPLACEMENT_ORIGIN_UNPARSEABLE": "Replacement origin not able to parse as url"
+    }
+}

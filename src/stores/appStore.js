@@ -4,40 +4,55 @@ import { t as translate } from 'svelte-i18n';
 export const routes = derived([translate], ([$translate]) => {
   return {
     OVERVIEW: {
-      title: $translate('UI.NAV.STEP_START'),
-      path: '/'
+      path: '/',
+      titleKey: 'START',
+      editMode: [true],
+    },
+    OPEN_REPORT: {
+      path: '/',
+      titleKey: 'OPEN_REPORT',
+      editMode: [false]
     },
     SCOPE: {
-      title: $translate('UI.NAV.STEP_SCOPE'),
-      path: '/evaluation/define-scope'
+      path: '/evaluation/define-scope',
+      titleKey: 'SCOPE',
+      editMode: [true],
     },
     EXPLORE: {
-      title: $translate('UI.NAV.STEP_EXPLORE'),
-      path: '/evaluation/explore-website'
+      path: '/evaluation/explore-website',
+      titleKey: 'EXPLORE',
+      editMode: [true],
     },
     SAMPLE: {
-      title: $translate('UI.NAV.STEP_SAMPLE'),
-      path: '/evaluation/select-sample'
+      path: '/evaluation/select-sample',
+      titleKey: 'SAMPLE',
+      editMode: [true],
     },
     AUDIT: {
-      title: $translate('UI.NAV.STEP_AUDIT'),
-      path: '/evaluation/audit-sample'
+      path: '/evaluation/audit-sample',
+      titleKey: 'AUDIT',
+      editMode: [true],
     },
     SUMMARY: {
-      title: $translate('UI.NAV.STEP_REPORT'),
-      path: '/evaluation/report-findings'
+      path: '/evaluation/report-findings',
+      titleKey: 'REPORT',
+      editMode: [true],
     },
     DOMAIN_REPLACEMENT: {
-      title: 'Sample Page Domain Replacement',
       path: '/evaluation/domain-replacement',
+      titleKey: 'DOMAIN_REPLACEMENT',
+      editMode: [true, false],
     },
     VIEW_REPORT: {
-      title: $translate('UI.NAV.STEP_VIEWREPORT'),
-      path: '/evaluation/view-report'
+      path: '/evaluation/view-report',
+      titleKey: 'VIEW_REPORT',
+      editMode: [true, false],
     },
     ACKNOWLEDGEMENTS: {
-      title: "Acknowledgements",
-      path: "/acknowledgements"
+      path: "/acknowledgements",
+      titleKey: 'ACKNOWLEDGEMENTS',
+      editMode: [true, false],
+      hideFromNav: true,
     }
   };
 });

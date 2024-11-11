@@ -1,6 +1,7 @@
 <File
   id="evaluation_open"
   label="{TRANSLATED.BUTTON}"
+  buttonStyle="{buttonStyle}"
   on:change="{handleOpenChange}"
 />
 
@@ -9,14 +10,16 @@
   import { useNavigate } from 'svelte-navigator';
   import evaluationStore from '@app/stores/evaluationStore.js';
   import { interacted, interactedOpenEvaluation } from '@app/stores/interactedStore.js';
-
   import File, { readFile } from './File.svelte';
 
+  export let buttonStyle = 'secondary';
+  export let navigateToAfterOpen = '/evaluation/define-scope';
+  
   const { translate } = getContext('app');
 
   $: TRANSLATED = {
     BUTTON: $translate('UI.NAV.MENU_OPEN', {default: 'Open evaluation'}),
-    CLEAR_WARNING: $translate('UI.NAV.CLEARWARNING'),
+    CLEAR_WARNING: $translate('UI.NAV.CLEAR_WARNING'),
   };
 
   let loading = false;
@@ -41,7 +44,7 @@
           .open(json)
           .then(() => {
             $interactedOpenEvaluation = true;
-            navigate('/evaluation/define-scope');
+            navigate(navigateToAfterOpen);
             $interacted = true;
           })
           .finally(() => {

@@ -25,5 +25,9 @@
     "CHOICES_DT4": "Not applicable",
     "CHOICES_DD4": "This success criterion relates to a feature the authoring tool does not have, it does not apply. ",
     "CHOICES_DT5": "Cannot tell",
-    "CHOICES_DD5": "It is unclear whether the success criterion is met."
+    "CHOICES_DD5": "It is unclear whether the success criterion is met.",
+    "OPEN": {
+        "SUBTITLE": "Open Report",
+        "INTRO_2": "This is a specialized version of the tool specific to viewing reports made with the tool. If you don't have a report as a JSON file yet, use the tool to <a href='https://www.w3.org/WAI/eval/report-tool/evaluation/define-scope' target='_blank'>create a new report</a>, then return here to open it."
+    }
 }

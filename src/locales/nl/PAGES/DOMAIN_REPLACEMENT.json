@@ -1,0 +1,15 @@
+{
+    "TITLE": "Voorbeeldpagina Domeinvervanging",
+    "INTRO": "Dit rapport bevat links naar de voorbeeldpagina's. Als u een andere tenant/env gebruikt, kunt u de onderstaande velden gebruiken om de domeinen in de links te vervangen. Deze worden lokaal opgeslagen in plaats van in het rapport.",
+    "EXISTING": "Bestaand",
+    "EXISTING_INTRO": "Dit is de oorsprong van de voorbeeldpagina's die in dit rapport zijn getest. ",
+    "EXISTING_EMPTY": "geen voorbeeldpagina's gevonden",
+    "REPLACEMENTS": "Vervangingen",
+    "ORIGINAL_ORIGIN": "Originele oorsprong",
+    "REPLACEMENT_ORIGIN": "Vervanging oorsprong",
+    "ADD_REPLACEMENT": "Vervanging toevoegen",
+    "ERRORS": {
+        "ORIGINAL_ORIGIN_UNPARSEABLE": "Oorspronkelijke oorsprong kan niet als URL worden geparseerd",
+        "REPLACEMENT_ORIGIN_UNPARSEABLE": "Vervangingsoorsprong kan niet als URL worden geparseerd"
+    }
+}

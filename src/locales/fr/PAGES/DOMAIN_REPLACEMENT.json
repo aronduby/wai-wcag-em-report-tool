@@ -1,0 +1,15 @@
+{
+    "TITLE": "Exemple de remplacement de domaine de page",
+    "INTRO": "Ce rapport comprend des liens vers les exemples de pages. Si vous utilisez un autre locataire/environnement, vous pouvez utiliser les champs ci-dessous pour remplacer les domaines dans les liens. Ceux-ci sont stockés localement et non dans le rapport.",
+    "EXISTING": "Existant",
+    "EXISTING_INTRO": "Telles sont les origines des exemples de pages testées dans ce rapport. ",
+    "EXISTING_EMPTY": "aucune page d'exemple trouvée",
+    "REPLACEMENTS": "Remplaçants",
+    "ORIGINAL_ORIGIN": "Origine originale",
+    "REPLACEMENT_ORIGIN": "Origine du remplacement",
+    "ADD_REPLACEMENT": "Ajouter un remplacement",
+    "ERRORS": {
+        "ORIGINAL_ORIGIN_UNPARSEABLE": "Origine d'origine impossible à analyser en tant qu'URL",
+        "REPLACEMENT_ORIGIN_UNPARSEABLE": "Origine de remplacement impossible à analyser en tant qu'URL"
+    }
+}

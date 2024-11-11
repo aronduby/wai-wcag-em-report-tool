@@ -8,7 +8,7 @@
     bind:value
     on:change
   />
-  <label for="{id}" class="File__label button button-secondary">
+  <label for="{id}" class="{`File__label button button-${buttonStyle}`}">
     {label}
     {#if labelsub}<span class="File__label-hint">{labelsub}</span>{/if}
   </label>
@@ -64,6 +64,7 @@
   export let value = '';
   export let accept = ['.json', '.jsonld'].join(',');
   export let showFiles = false;
+  export let buttonStyle = 'secondary';
 
   let files = [];
 </script>
