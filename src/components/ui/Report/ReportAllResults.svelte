@@ -2,7 +2,13 @@
   <h4>{principle} {TRANSLATED.PRINCIPLES[principle].TITLE}</h4>
 
   {#each guidelines.filter((g) => g.indexOf(principle) === 0) as guideline}
-    <h5 id={`guideline-${guideline.replace('.', '')}`}>{guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}</h5>
+    <h5 
+      id={`guideline-${guideline.replace('.', '')}`}
+      class="pageJump-holder"
+    >
+      {guideline} {TRANSLATED.GUIDELINES[guideline].TITLE}
+      <a class="pageJump" href="#{`guideline-${guideline.replace('.', '')}`}"><Icon icon="link" alt="jump to guideline" /></a>
+    </h5>
     <table class="Auditor__ResultsTable" aria-labelledby={`guideline-${guideline.replace('.', '')}`}>
       <tbody>
           <tr class="Auditor__ResultsTableHeader">
@@ -20,7 +26,10 @@
         {#each guidelineCriteria(guideline) as criterion (criterion.num)}
           <tr class="Auditor__Assertion">
             <th scope="row" class="Auditor__Assertion-SC" id={`criterion-${criterion.num.replaceAll('.', '')}`}>
-              {criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}
+              <span class="pageJump-holder">
+                {criterion.num}: {TRANSLATED.CRITERIA[criterion.num].TITLE}
+                <a class="pageJump" href="#{`criterion-${criterion.num.replaceAll('.', '')}`}"><Icon icon="link" alt="jump to criterion" /></a>
+              </span>
               
               <ul class="criterion__resource-links">
                 {#if wcagVersion == '20'}
@@ -207,6 +216,16 @@
     padding: 0;
     margin-bottom: .2em;
   }
+  
+  .pageJump-holder .pageJump :global(svg) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+  }
+  
+  .pageJump-holder:hover .pageJump :global(svg),
+  .pageJump-holder:focus-within .pageJump :global(svg) {
+    clip-path: unset;
+  }
 </style>
 
 <script>
@@ -224,6 +243,7 @@
   import ResourceLink from '@app/components/ui/ResourceLink.svelte';
   import SamplePageLink from "@app/components/ui/SamplePageLink.svelte";
   import { basepath } from '@app/stores/appStore.js';
+  import Icon from "../Icon.svelte";
 
   export let criteria = [];
 
