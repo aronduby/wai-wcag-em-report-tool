@@ -13,8 +13,17 @@ import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 import locales from './src/locales/index.json';
 
-const production = !process.env.ROLLUP_WATCH;
+/**
+ * To build (or dev) with an existing report file add the file to ./src/report-data and then run build/dev passing in the 
+ * file name without the json suffix as an environment variable. For example, if you have a file eca-report.json
+ * 
+ * > npm run build -- --environment REPORT:eca-report
+ * 
+ * @type {string|string}
+ */
+const REPORT = process.env.REPORT || 'empty';
 
+const production = !process.env.ROLLUP_WATCH;
 const BASEPATH = process.env.BASEPATH || '';
 
 export default {
@@ -40,6 +49,7 @@ export default {
       browser: true,
       dedupe: ['svelte']
     }),
+    
     commonjs(),
 
     json({
@@ -133,14 +143,14 @@ export default {
             return contentsString;
           }
         }
-    ],
+      ],
       verbose: false
     }),
 
     replace({
-      __BASEPATH__: BASEPATH
+      __BASEPATH__: BASEPATH,
+      __REPORT__: REPORT,
     }),
-
 
     !production &&
       serve({

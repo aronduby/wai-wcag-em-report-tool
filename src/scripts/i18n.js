@@ -26,7 +26,7 @@ export async function internationalize(locales) {
   register('fr', () => import('../locales/translations_fr.json'));
   register('pl', () => import('../locales/translations_pl.json'));  
 
-  init({
+  await init({
     fallbackLocale: defaultLocale,
     // language[-region]
     // e.g. /nl-NL/ --> Dutch Netherlands

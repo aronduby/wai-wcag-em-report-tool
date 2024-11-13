@@ -28,6 +28,10 @@
     "CHOICES_DD5": "It is unclear whether the success criterion is met.",
     "OPEN": {
         "SUBTITLE": "Open Report",
-        "INTRO_2": "This is a specialized version of the tool specific to viewing reports made with the tool. If you don't have a report as a JSON file yet, use the tool to <a href='https://www.w3.org/WAI/eval/report-tool/evaluation/define-scope' target='_blank'>create a new report</a>, then return here to open it."
+        "INTRO_2": "This is a specialized version of the tool specific to viewing reports made with the tool. If you don't have a report as a JSON file yet, use the tool to <a href='https://www.w3.org/WAI/eval/report-tool/evaluation/define-scope' target='_blank'>create a new report</a>, then return here to open it.",
+        "CURRENT_REPORT": {
+            "SUBTITLE": "Current Report",
+            "INTRO": "This report is already open, what would you like to do?"
+        }
     }
 }

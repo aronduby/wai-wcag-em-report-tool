@@ -1,5 +1,5 @@
 <!-- @Component:App -->
-{#if $isLoading}
+{#if $langLoading || reportLoading}
   <p>Loading WCAG Report Tool</p>
 {:else}
   <BaseRoute basepath="{basepath}" />
@@ -8,7 +8,7 @@
 
 <script>
   import { setContext, getContext, onMount } from 'svelte';
-  import { isLoading } from 'svelte-i18n';
+  import { isLoading as langLoading } from 'svelte-i18n';
 
   import { translate, translateToObject } from '@app/stores/i18nStore.js';
   import auditStore from '@app/stores/auditStore.js';
@@ -25,6 +25,7 @@
   import BaseRoute from '@app/components/routes/BaseRoute.svelte';
 
   export let basepath = '';
+  export let reportData = '';  
 
   export const ALLOW_EDIT = false;
     
@@ -51,7 +52,7 @@
   const { wcagCriteria } = getContext('Evaluation');
   import { CriteriaSelected } from '@app/stores/selectedCriteriaStore.js';
   import { CriteriaFiltered } from '@app/stores/filteredCriteriaStore.js';
-  import { WCAG_VERSIONS } from '@app/stores/wcagStore.js';
+  import { WCAG_VERSIONS } from '@app/stores/wcagStore.js';  
   $: if (selectedCriteria) {
     CriteriaSelected.set(selectedCriteria);
     CriteriaFiltered.set(selectedCriteria);
@@ -79,6 +80,18 @@
 
       return filterLevels.indexOf(criterion.conformanceLevel) >= 0;
     });
+  
+  // preload our data if it's been supplied
+  let reportLoading = true;
+  if (reportData) {
+    $evaluationStore
+      .open(reportData)
+      .finally(() => {
+        reportLoading = false;
+      })
+  } else {
+    reportLoading = false;
+  }
 
   onMount(() => {
     window.addEventListener("input", setInteracted);
