@@ -26,7 +26,7 @@
         {TRANSLATED.BUTTON_NEW_EVALUATION}
         <span class="visuallyhidden">opens externally</span>
         <svg aria-hidden="true" class="icon-external-link">
-          <use xlink:href={`${$basepath}/images/icons.svg#icon-external-link`}></use>
+          <use xlink:href={`#icon-external-link`}></use>
         </svg>
       </a>
       

@@ -5,7 +5,7 @@
   rel="noopener roreferrer"
 >
   <svg aria-hidden="true" class="icon-info"><use
-      xlink:href={`${$basepath}/images/icons.svg#icon-info`}
+      xlink:href="#icon-info"
     ></use></svg>
   <span>
     <slot />

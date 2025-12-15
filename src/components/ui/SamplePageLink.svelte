@@ -2,7 +2,7 @@
   <a href="{urlObj.href}" class="link-to-sample button button-small button-secondary" target="_blank" title="view page">
     <span class="visuallyhidden">view page</span>
     <svg aria-hidden="true" class="icon-external-link">
-      <use xlink:href={`${$basepath}/images/icons.svg#icon-external-link`}></use>
+      <use xlink:href="#icon-external-link"></use>
     </svg>
   </a>
 {/if}

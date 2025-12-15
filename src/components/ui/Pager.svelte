@@ -11,7 +11,7 @@
           <Link to="{previousPage.path}">
             <svg aria-hidden="true" class="pager--item-icon icon-arrow-left">
               <use
-                xlink:href={`${$basepath}/images/icons.svg#icon-arrow-left`}
+                xlink:href="#icon-arrow-left"
               ></use>
             </svg>
             <span class="pager--item-text">
@@ -29,8 +29,7 @@
           <Link to="{nextPage.path}">
             <svg aria-hidden="true" class="pager--item-icon icon-arrow-right">
               <use
-                xlink:href=
-                {`${$basepath}/images/icons.svg#icon-arrow-right`}
+                xlink:href="#icon-arrow-right"
               ></use></svg>
             <span class="pager--item-text">
               <span class="pager--item-text-direction">{TRANSLATED.NEXT}</span>

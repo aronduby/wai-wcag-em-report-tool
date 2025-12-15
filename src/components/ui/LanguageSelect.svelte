@@ -36,7 +36,7 @@
       aria-expanded="{!collapsed}"
     >
       <svg aria-hidden="true" class="icon-languages"><use
-          xlink:href={`${$basepath}/images/icons.svg#icon-languages`}
+          xlink:href="#icon-languages"
         ></use></svg>
       <span>
         {#if collapsed}

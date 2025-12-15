@@ -1,6 +1,9 @@
 # npm
 node_modules
 
+# IDE
+.idea
+
 # App specific
 build
 src/report-data/*

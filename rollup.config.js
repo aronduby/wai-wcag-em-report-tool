@@ -12,6 +12,7 @@ import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 import locales from './src/locales/index.json';
+import fs from 'fs';
 
 /**
  * To build (or dev) with an existing report file add the file to ./src/report-data and then run build/dev passing in the 
@@ -117,13 +118,15 @@ export default {
             let contentsString = contents.toString();
             const buildDate = new Date();
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const iconsSvg = fs.readFileSync('src/static/images/icons.svg', 'utf8');
 
             const replacement = {
               __APP_BUILD_DATE__: `${buildDate.getDate()} ${months[buildDate.getMonth()]} ${buildDate.getFullYear()}`,
               __APP_BUILD_YEAR__: buildDate.getFullYear(),
               __APP_VERSION__: production ? pkg.version : 'DEVELOPMENT',
               __BASEPATH__: BASEPATH,
-              __TITLE__: pkg.name
+              __TITLE__: pkg.name,
+              __ICONS_SVG__: iconsSvg
             };
 
             let replaceRegexp;
